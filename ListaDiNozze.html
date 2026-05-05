@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Registry</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="hero">
+
+	<header class="header-bar">
+
+	  <div class="header-left">
+		<img src="header.jpg" alt="Logo matrimonio" class="header-logo" />
+		<span class="header-title">Cristina e Alberto</span>
+	  </div>
+
+	  <div class="header-right">
+		<a href="Main.html" class="header-btn">Home</a>
+		<span class="dot-separator">•</span>
+		<a href="ListaDiNozze.html" class="header-btn">Lista Di Nozze</a>
+		<span class="dot-separator">•</span>
+		<a href="timeline.html" class="header-btn">Timeline</a>
+	  </div>
+
+	</header>
+
+  </header>
+
+
+<main class="registry-section">
+
+	<section class="registry-collage">
+	  <div class="collage-grid">
+		<img src="foto1.jpg" class="collage-img">
+		<img src="foto2.jpg" class="collage-img">
+		<img src="foto3.jpg" class="collage-img">
+		<img src="foto4.jpg" class="collage-img">
+		<img src="foto5.jpg" class="collage-img">
+
+		<img src="foto6.jpg" class="collage-img">
+		<img src="foto7.jpg" class="collage-img">
+		<img src="foto8.jpg" class="collage-img">
+		<img src="foto9.jpg" class="collage-img">
+		<img src="foto10.jpg" class="collage-img">
+
+		<img src="foto11.jpg" class="collage-img">
+		<img src="foto12.jpg" class="collage-img">
+		<img src="foto13.jpg" class="collage-img">
+		<img src="foto14.jpg" class="collage-img">
+		<img src="foto15.jpg" class="collage-img">
+
+		<img src="foto16.jpg" class="collage-img">
+		<img src="foto17.jpg" class="collage-img">
+		<img src="foto18.jpg" class="collage-img">
+		<img src="foto19.jpg" class="collage-img">
+		<img src="foto20.jpg" class="collage-img">
+
+		<img src="foto21.jpg" class="collage-img">
+		<img src="foto22.jpg" class="collage-img">
+		<img src="foto23.jpg" class="collage-img">
+		<img src="foto24.jpg" class="collage-img">
+		<img src="foto25.jpg" class="collage-img">
+	  </div>
+
+	  <p class="registry-intro">
+		La vostra presenza è per noi il regalo più bello,<br>
+		ci tenevamo molto a festeggiare questo giorno importante con voi tutti.
+	  </p>
+	  
+	  
+	<p class="registry-main">
+	  Se però desiderate contribuire a realizzare un nostro piccolo sogno,<br>
+	  ci piacerebbe partire per un <span class="highlight-safari">Safari in Africa</span>.<br>
+	  Se vi fa piacere, potrete contribuire direttamente sul nostro conto cointestato all'IBAN:
+	</p>
+
+	<div class="iban-box">
+	  <p class="iban-label">IBAN</p>
+	  <p class="iban-value" id="iban-text">IT00X0000000000000000000000</p>
+
+	  <button class="copy-btn" onclick="copyIBAN()">Copia IBAN</button>
+	  <p id="copy-feedback" class="copy-feedback">Copiato!</p>
+	</div>
+
+	  <p class="registry-intro">
+		GRAZIE !!!<br>
+	  </p>
+
+	</section>
+
+</main>
+
+<footer class="footer">
+  <p>03 Ottobre 2026</p>
+</footer>
+
+
+<script>
+function copyIBAN() {
+  const iban = document.getElementById("iban-text").innerText;
+  navigator.clipboard.writeText(iban).then(() => {
+    const feedback = document.getElementById("copy-feedback");
+    feedback.style.opacity = "1";
+    setTimeout(() => {
+      feedback.style.opacity = "0";
+    }, 1500);
+  });
+}
+</script>
+
+</body>
+</html>
