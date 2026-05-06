@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RSVP</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- HEADER IDENTICO -->
+  <header class="hero">
+    <header class="header-bar">
+
+      <div class="header-left">
+        <img src="header.jpg" alt="Logo matrimonio" class="header-logo" />
+        <span class="header-title">Cristina e Alberto</span>
+      </div>
+
+      <div class="header-right">
+        <a href="Main.html" class="header-btn">Home</a>
+        <span class="dot-separator">•</span>
+        <a href="ListaDiNozze.html" class="header-btn">Lista Di Nozze</a>
+        <span class="dot-separator">•</span>
+        <a href="timeline.html" class="header-btn">Timeline</a>
+        <span class="dot-separator">•</span>
+        <a href="RSVP.html" class="header-btn">RSVP</a>
+      </div>
+
+    </header>
+  </header>
+
+  <!-- FORM -->
+  <div class="rsvp-container">
+    <h1 class="rsvp-title">Conferma la tua presenza</h1>
+
+    <form action="https://formsubmit.co/TUA_EMAIL" method="POST">
+
+      <input type="hidden" name="_subject" value="Nuova conferma RSVP dal sito del matrimonio">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://TUO-SITO/thankyou.html">
+
+      <label>Nome e Cognome
+        <input type="text" name="nome" required>
+      </label>
+
+      <label>Parteciperai?
+        <select name="presenza" required>
+          <option value="si">Sì, ci sarò!</option>
+          <option value="no">Purtroppo no</option>
+        </select>
+      </label>
+
+      <label>Numero di persone
+        <input type="number" name="persone" min="1" max="10">
+      </label>
+
+      <label>Note (allergie, richieste…)
+        <textarea name="note"></textarea>
+      </label>
+
+      <button type="submit" class="submit-btn">Invia</button>
+    </form>
+  </div>
+
+</body>
+</html>
+
+
+

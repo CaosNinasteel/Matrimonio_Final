@@ -1,14 +1,17 @@
 /* FONT & BASE */
 body {
-  font-family: "Playfair Display", serif;
+  /*font-family: "Playfair Display", serif;*/
+  font-family: "Cormorant Garamond", serif;
   background: #ffffff;
   color: #222;
   text-align: center;
   padding-top: 110px;
 }
 
-/* HEADER */
-/* HEADER BAR FISSO */
+/***************************************************/
+/*                     HEADER                      */
+/***************************************************/
+
 .header-bar {
   width: 100%;
   background: #f2f2f2;
@@ -17,18 +20,13 @@ body {
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #e5e5e5;
-
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 999;
-
-  /*max-width: 1200px;*/
-  /*margin: 0 auto;*/
   right: 0;
+  z-index: 999;
 }
 
-/* LOGO + TITOLO */
 .header-left {
   display: flex;
   align-items: center;
@@ -48,13 +46,11 @@ body {
   color: #333;
 }
 
-/* BOTTONI A DESTRA */
+/* BOTTONI HEADER */
 .header-right {
   display: flex;
   align-items: center;
   gap: 1.5rem;
-
-  /* Evita che vadano troppo a destra */
   padding-right: 4rem;
 }
 
@@ -62,7 +58,7 @@ body {
   background: none;
   border: none;
   color: #333;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   letter-spacing: 1px;
   text-decoration: none;
   cursor: pointer;
@@ -72,13 +68,13 @@ body {
   color: #666;
 }
 
-/* PUNTO SEPARATORE */
+/* SEPARATORE • */
 .dot-separator {
   font-size: 1.4rem;
   color: #999;
 }
 
-/* MOBILE */
+/* MOBILE HEADER */
 @media (max-width: 700px) {
   .header-bar {
     flex-direction: column;
@@ -91,30 +87,10 @@ body {
   }
 }
 
+/***************************************************/
+/*                     HOME                        */
+/***************************************************/
 
-
-/* BOTTONI */
-.registry-btn,
-.home-btn,
-.timeline-btn {
-  display: inline-block;
-  margin-top: 2rem;
-  background: none;
-  border: none;
-  color: #333;
-  font-size: 1.2rem;
-  letter-spacing: 1px;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.registry-btn:hover,
-.home-btn:hover,
-.timeline-btn:hover {
-  color: #666;
-}
-
-/* SEZIONE CENTRALE HOME */
 .main-section {
   background: #ffffff;
   padding: 3rem 1rem;
@@ -156,25 +132,23 @@ body {
   font-style: italic;
 }
 
+/***************************************************/
+/*                  HERO BANNER                    */
+/***************************************************/
 
-/* HERO BANNER CON FOTO */
 .hero-banner {
   width: 100%;
-  height: 300px; /* puoi aumentare a 350–400 se vuoi più impatto */
-  background-image: url("Foto_Bacino.jpg"); /* usa la tua foto */
+  height: 300px;
+  background-image: url("Foto_Bacino.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-
   display: flex;
   justify-content: center;
   align-items: center;
-
   margin-bottom: 3rem;
-  border-radius: 0; /* puoi mettere 10px se vuoi angoli arrotondati */
 }
 
-/* TESTO SULLA FOTO */
 .hero-banner-text {
   font-family: "Playfair Display", serif;
   font-size: 2.8rem;
@@ -184,9 +158,10 @@ body {
   letter-spacing: 2px;
 }
 
+/***************************************************/
+/*                     INVITO                      */
+/***************************************************/
 
-
-/* INVITO */
 .invito-block {
   margin: 5rem auto 3rem auto;
   max-width: 600px;
@@ -214,11 +189,10 @@ body {
   margin-top: 0.3rem;
 }
 
-.italic-title {
-  font-style: italic;
-}
+/***************************************************/
+/*                   LOCATION GRID                 */
+/***************************************************/
 
-/* GRIGLIA DUE COLONNE PER LE LOCATION */
 .location-grid {
   display: flex;
   justify-content: center;
@@ -228,14 +202,12 @@ body {
   max-width: 900px;
 }
 
-/* BOX DI OGNI LOCATION */
 .location-box {
   width: 100%;
   max-width: 400px;
   text-align: center;
 }
 
-/* TITOLO (ORARIO + LUOGO) */
 .location-title {
   font-size: 1.5rem;
   font-weight: 500;
@@ -244,15 +216,13 @@ body {
   letter-spacing: 1px;
 }
 
-/* SOTTOTITOLO (orario + luogo) */
 .location-subtitle {
-  font-size: 1.3rem;       /* più piccolo */
-  font-weight: 300;        /* più leggero */
+  font-size: 1.3rem;
+  font-weight: 300;
   color: #444;
   margin-bottom: 1.2rem;
 }
 
-/* FOTO */
 .location-img {
   width: 100%;
   height: auto;
@@ -261,27 +231,42 @@ body {
   box-shadow: 0 4px 10px rgba(0,0,0,0.08);
 }
 
+
+
+/***************************************************/
+/*              LISTA DI NOZZE – COLLAGE           */
+/***************************************************/
+
+.collage-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 6px;
+  margin: 3rem auto;
+  max-width: 900px;
+}
+
+.collage-img {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
 /* MOBILE */
 @media (max-width: 700px) {
-  .location-grid {
-    flex-direction: column;
-    gap: 2rem;
+  .collage-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .collage-img {
+    height: 90px;
   }
 }
 
+/***************************************************/
+/*                LISTA DI NOZZE – TESTO           */
+/***************************************************/
 
-
-
-
-/* FOOTER */
-.footer {
-  background: #f2f2f2;
-  padding: 2rem 0;
-  font-size: 1.1rem;
-  color: #555;
-}
-
-/* REGISTRY PAGE */
 .registry-section {
   background: #ffffff;
   padding: 4rem 1rem;
@@ -294,43 +279,31 @@ body {
   line-height: 1.6;
 }
 
-.reg-text {
-  font-size: 1.3rem;
-  margin: 1.2rem 0;
-  font-weight: 400;
-  letter-spacing: 0.5px;
-}
-
-.ornamento {
-  font-size: 2rem;
-  margin: 2rem 0 1rem 0;
-  color: #777;
-  letter-spacing: 4px;
-}
-
-/* TESTO INTRODUTTIVO */
+/* Testo introduttivo (più grande e in evidenza) */
 .registry-intro {
-  font-size: 1.5rem;        /* più grande */
-  font-weight: 600;         /* grassetto */
+  font-size: 1.6rem;
+  font-weight: 600;
   line-height: 1.6;
-  color: #222;              /* più scuro */
+  color: #222;
   font-style: italic;
   letter-spacing: 0.5px;
   margin-bottom: 2.5rem;
 }
 
-/* TESTO PRINCIPALE */
+/* Testo principale (più grande e leggibile) */
 .registry-main {
-  font-size: 1.25rem;       /* più piccolo */
-  font-weight: 300;         /* molto leggero */
-  line-height: 1.6;
-  font-style: italic;
-  color: #555;              /* più chiaro */
+  font-size: 1.35rem;
+  font-weight: 300;
+  line-height: 1.7;
+  color: #444;
   margin-bottom: 2rem;
   letter-spacing: 0.3px;
 }
 
-/* BOX IBAN */
+/***************************************************/
+/*                BOX IBAN RIPRISTINATA            */
+/***************************************************/
+
 .iban-box {
   background: #ffffff;
   border: 1px solid #ddd;
@@ -354,12 +327,6 @@ body {
   color: #333;
 }
 
-.highlight-safari {
-  font-weight: 600;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-
 .copy-btn {
   margin-top: 1rem;
   padding: 0.6rem 1.2rem;
@@ -377,7 +344,6 @@ body {
   background: #555;
 }
 
-/* FEEDBACK "COPIATO!" */
 .copy-feedback {
   margin-top: 0.7rem;
   font-size: 0.9rem;
@@ -386,179 +352,151 @@ body {
   transition: opacity 0.3s ease;
 }
 
+/***************************************************/
+/*                TIMELINE MINIMAL CHIC            */
+/***************************************************/
 
-
-/* COLLAGE REGISTRY */
-.registry-collage {
-  margin: 3rem auto;
-  max-width: 900px;
-  text-align: center;
-}
-
-/* GRIGLIA 5x5 */
-.collage-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 6px;
-  margin-bottom: 2.5rem;
-}
-
-/* FOTO DEL COLLAGE */
-.collage-img {
-  width: 100%;
-  height: 100px;
-  object-fit: cover;
-  border-radius: 4px;
-}
-
-/* TESTO SOTTO IL COLLAGE */
-.registry-intro {
-  font-size: 1.4rem;
-  font-weight: 300;
-  line-height: 1.5;
-  color: #444;
-  font-style: italic;
-  letter-spacing: 0.5px;
-}
-
-/* MOBILE */
-@media (max-width: 700px) {
-  .collage-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .collage-img {
-    height: 90px;
-  }
-
-  .registry-intro {
-    font-size: 1.2rem;
-  }
-}
-
-
-
-/* ----------------------------- */
-/*   TIMELINE MODERNA ISOLATA    */
-/* ----------------------------- */
+/***************************************************/
+/*           TIMELINE MINIMAL CHIC + EMOJI         */
+/***************************************************/
 
 .timeline-section {
-  background: #ffffff;
   padding: 4rem 1rem;
   text-align: center;
 }
 
 .timeline-title {
-  font-size: 2rem;
-  margin-bottom: 3rem;
-  margin-top: -3rem;
+  font-size: 2.4rem;
+  font-weight: 400;
   letter-spacing: 1px;
+  margin-bottom: 3rem;
+  font-style: italic;
   color: #333;
 }
 
-/* CONTENITORE */
-.timeline-vertical {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4rem;
-  margin-top: 3rem;
-}
-
-/* BLOCCO EVENTO */
-.timeline-block {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.timeline {
+  max-width: 900px;
+  margin: 0 auto;
   position: relative;
 }
 
-/* ICONA */
-.timeline-circle {
-  width: 85px;
-  height: 85px;
-  background: #f2f2f2;
-  border: 3px solid #d8d8d8;
-  border-radius: 50%;
+.timeline-item {
   display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: 2.2rem;
+  margin: 2.5rem 0;
+  gap: 1.5rem;
 }
 
-/* LINEA TRA EVENTI */
-.timeline-connector {
-  width: 3px;
-  height: 45px;
-  background: #d8d8d8;
-  margin: 1rem 0;
+.timeline-item.left {
+  flex-direction: row;
 }
 
-/* TESTO A SINISTRA */
-.timeline-text-left {
+.timeline-item.right {
+  flex-direction: row-reverse;
+}
+
+.timeline-icon {
+  font-size: 2.5rem;
+  background: #fff;
+  border: 2px solid #ddd;
+  padding: 0.8rem;
+  border-radius: 50%;
+  min-width: 60px;
+  text-align: center;
+}
+
+.timeline-text {
   text-align: left;
-  margin-right: 140px;
-  margin-top: 0.5rem;
+  max-width: 350px;
 }
 
-/* TESTO A DESTRA */
-.timeline-text-right {
-  text-align: right;
-  margin-left: 140px;
-  margin-top: 0.5rem;
-}
-
-.timeline-text-left h3,
-.timeline-text-right h3 {
-  font-size: 1.4rem;
+.timeline-text h3 {
   margin: 0;
+  font-size: 1.5rem;
+  font-weight: 500;
 }
 
-.timeline-text-left p,
-.timeline-text-right p {
-  margin: 0.3rem 0 0;
-  color: #555;
+.timeline-text p {
+  margin: 0.4rem 0 0;
   font-size: 1.1rem;
+  color: #555;
 }
 
 /* MOBILE */
 @media (max-width: 700px) {
-  .timeline-text-left,
-  .timeline-text-right {
-    margin: 0;
+  .timeline-item {
+    flex-direction: column !important;
+    text-align: center;
+  }
+
+  .timeline-text {
     text-align: center;
   }
 }
 
 
 
-/* RIGA BOTTONI */
-.buttons-row {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 2.5rem; /* distanza tra bottone e punto */
-  margin-top: 2rem;
+/***************************************************/
+/*                     FOOTER                      */
+/***************************************************/
+
+.footer {
+  background: #f2f2f2;
+  padding: 2rem 0;
+  font-size: 1.1rem;
+  color: #555;
 }
 
-/* BOTTONI HEADER */
-.header-btn {
-  background: none;
-  border: none;
-  color: #333;
-  font-size: 1.3rem;
+/***************************************************/
+/*                     RSVP PAGE                   */
+/***************************************************/
+
+.rsvp-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: left;
+}
+
+.rsvp-title {
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-weight: 400;
   letter-spacing: 1px;
-  text-decoration: none;
+}
+
+form label {
+  display: block;
+  margin-top: 1.5rem;
+  font-size: 1.2rem;
+  letter-spacing: 0.5px;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 0.7rem;
+  margin-top: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: "Playfair Display", serif;
+  font-size: 1rem;
+}
+
+textarea {
+  min-height: 120px;
+}
+
+.submit-btn {
+  margin-top: 2rem;
+  padding: 0.8rem 2rem;
+  font-size: 1.2rem;
+  background: none;
+  border: 1px solid #333;
   cursor: pointer;
+  letter-spacing: 1px;
 }
 
-.header-btn:hover {
-  color: #666;
-}
-
-/* PUNTO CENTRALE */
-.dot-separator {
-  font-size: 1.6rem;
-  color: #999;
-  margin: 0 0.5rem;
+.submit-btn:hover {
+  background: #f2f2f2;
 }

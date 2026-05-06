@@ -2,9 +2,10 @@
 <html lang="it">
 <head>
 	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&display=swap" rel="stylesheet">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Registry</title>
+  <title>Timeline</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -26,53 +27,63 @@
 		<a href="ListaDiNozze.html" class="header-btn">Lista Di Nozze</a>
 		<span class="dot-separator">•</span>
 		<a href="timeline.html" class="header-btn">Timeline</a>
+		<span class="dot-separator">•</span>
+		<a href="RSVP.html" class="header-btn">RSVP</a>
 	  </div>
 
 	</header>
 
   </header>
 
-<main class="timeline-section">
+<section class="timeline-section">
+  <h2 class="timeline-title">Timeline della Giornata</h2>
 
-  <h2 class="timeline-title">🕒 Timeline della Giornata 🕒</h2>
+  <div class="timeline">
 
-	<div class="timeline-vertical">
+    <div class="timeline-item left">
+      <div class="timeline-icon">💍</div>
+      <div class="timeline-text">
+        <h3>Cerimonia</h3>
+        <p>Ore 11:00 – Duomo di Pordenone</p>
+      </div>
+    </div>
 
-	  <div class="timeline-block">
-		<div class="timeline-circle">💍</div>
-		<div class="timeline-text-left">
-		  <h3>Cerimonia</h3>
-		  <p>Ore 11:00</p>
-		</div>
-	  </div>
+    <div class="timeline-item right">
+      <div class="timeline-icon">🥂</div>
+      <div class="timeline-text">
+        <h3>Aperitivo</h3>
+        <p>Ore 13:30 – Il Pedrocchino</p>
+      </div>
+    </div>
 
-	  <div class="timeline-block">
-		<div class="timeline-circle">🥂</div>
-		<div class="timeline-text-right">
-		  <h3>Aperitivo</h3>
-		  <p>Ore 13:30</p>
-		</div>
-	  </div>
+    <div class="timeline-item left">
+      <div class="timeline-icon">🍽️</div>
+      <div class="timeline-text">
+        <h3>Pranzo</h3>
+        <p>Ore 14:30 – Il Pedrocchino</p>
+      </div>
+    </div>
 
-	  <div class="timeline-block">
-		<div class="timeline-circle">🍽️</div>
-		<div class="timeline-text-left">
-		  <h3>Ricevimento</h3>
-		  <p>Ore 15:00</p>
-		</div>
-	  </div>
+    <div class="timeline-item right">
+      <div class="timeline-icon">🎂</div>
+      <div class="timeline-text">
+        <h3>Taglio torta</h3>
+        <p>Ore 19:00 – Il Pedrocchino</p>
+      </div>
+    </div>
 
-	  <div class="timeline-block">
-		<div class="timeline-circle">🎂</div>
-		<div class="timeline-text-right">
-		  <h3>Taglio della Torta</h3>
-		  <p>Ore 19:00</p>
-		</div>
-	  </div>
+    <div class="timeline-item left">
+      <div class="timeline-icon">🍸</div>
+      <div class="timeline-text">
+        <h3>Cocktail Party</h3>
+        <p>Ore 20:30 – Il Pedrocchino</p>
+      </div>
+    </div>
 
-	</div>
+  </div>
+</section>
 
-</main>
+
 
 
 <footer class="footer">
