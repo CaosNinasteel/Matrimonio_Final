@@ -5,7 +5,7 @@ body {
   background: #ffffff;
   color: #222;
   text-align: center;
-  padding-top: 110px;
+  padding-top: 50px;
 }
 
 /***************************************************/
@@ -146,11 +146,11 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 3rem;
+  margin-bottom: 1.5rem;
 }
 
 .hero-banner-text {
-  font-family: "Playfair Display", serif;
+  font-family: "Cormorant Garamond", serif;
   font-size: 2.8rem;
   font-style: italic;
   color: white;
@@ -241,7 +241,7 @@ body {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 6px;
-  margin: 3rem auto;
+  margin: 1.5rem auto;
   max-width: 900px;
 }
 
@@ -361,7 +361,8 @@ body {
 /***************************************************/
 
 .timeline-section {
-  padding: 4rem 1rem;
+  padding-top: 1.5rem;
+  padding-bottom: 3rem;
   text-align: center;
 }
 
@@ -487,16 +488,22 @@ textarea {
   min-height: 120px;
 }
 
+
 .submit-btn {
   margin-top: 2rem;
-  padding: 0.8rem 2rem;
-  font-size: 1.2rem;
+  padding: 0.8rem 2.2rem;
+  font-size: 1.1rem;
   background: none;
-  border: 1px solid #333;
+  border: 1px solid #555;
+  border-radius: 30px; /* forma più elegante */
   cursor: pointer;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
+  font-weight: 300;
+  color: #333;
+  transition: all 0.3s ease;
 }
 
 .submit-btn:hover {
-  background: #f2f2f2;
+  background: #f7f7f7;
+  border-color: #888;
 }
