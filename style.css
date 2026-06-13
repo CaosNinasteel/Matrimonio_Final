@@ -247,28 +247,20 @@ body {
 }
 
 .invito-testo {
-  font-size: 1.3rem;
+	font-family: "Pinyon Script", cursive;
+  font-size: 1.8rem;
   font-weight: 400;
   margin-bottom: 1rem;
   letter-spacing: 0.5px;
 }
 
-.invito-luogo {
-  font-size: 2rem;
-  font-weight: 500;
-  margin: 1.5rem 0 0.5rem 0;
-  letter-spacing: 1px;
-}
+@media (max-width: 700px) {
 
-.invito-indirizzo {
-  font-size: 1.3rem;
-  color: #555;
-  margin-top: 0.2rem;
-}
+  .invito-testo {
+    font-size: 1.1rem;
+  }
 
-/***************************************************/
-/*                   LOCATION GRID                 */
-/***************************************************/
+}
 
 .location-grid {
   display: flex;
@@ -299,6 +291,19 @@ body {
   font-weight: 300;
   color: #444;
   margin-bottom: 1.2rem;
+}
+
+
+@media (max-width: 700px) {
+
+  .location-title {
+    font-size: 1.1rem;
+  }
+
+  .location-subtitle {
+    font-size: 1rem;
+  }
+
 }
 
 /***************************************************/
