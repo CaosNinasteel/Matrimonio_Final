@@ -134,7 +134,7 @@ body {
 
 .main-section {
   background: #ffffff;
-  padding: 3rem 1rem;
+  padding: 2rem 0.8rem;
 }
 
 .names {
@@ -146,7 +146,7 @@ body {
 .line {
   width: 60%;
   max-width: 600px;
-  margin: 0 auto;
+  margin: 0.5 rem auto;
   border: none;
   border-top: 2px solid #000;
 }
@@ -197,10 +197,11 @@ body {
   /* Sezione invito */
   .invito-testo {
     font-size: 1.1rem;
+	margin: 0.5rem 0;
   }
 
   .invito-luogo {
-    font-size: 1.3rem;
+    font-size: 1rem;
   }
 
   .invito-indirizzo {
@@ -301,7 +302,7 @@ body {
   }
 
   .location-subtitle {
-    font-size: 1rem;
+    font-size: 0.8rem;
   }
 
 }
@@ -397,6 +398,58 @@ body {
   transition: opacity 0.3s ease;
 }
 
+@media (max-width: 700px) {
+
+  .registry-section {
+    padding: 2rem 0.8rem; /* era 4rem → troppo alto */
+  }
+
+  .registry-block {
+    line-height: 1.4; /* più compatto */
+  }
+
+  .registry-intro {
+    font-size: 1.05rem;
+    margin-top: 2rem;     /* ridotto */
+    margin-bottom: 1.5rem;
+    line-height: 1.4;
+  }
+
+  .registry-main {
+    font-size: 0.95rem;
+    margin-bottom: 1.2rem;
+    line-height: 1.5;
+  }
+
+  /* BOX IBAN più compatta */
+  .iban-box {
+    max-width: 260px;
+    padding: 0.4rem;
+    margin: 0 auto 0.8rem;
+  }
+
+  .iban-label {
+    font-size: 0.85rem;
+    margin-bottom: 0.2rem;
+  }
+
+  .iban-value {
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+  }
+
+  /* Bottone più piccolo */
+  .copy-btn {
+    margin-top: 0.6rem;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+  }
+
+  .copy-feedback {
+    font-size: 0.8rem;
+    margin-top: 0.4rem;
+  }
+}
 
 /***************************************************/
 /*                     FOOTER                      */
