@@ -33,38 +33,132 @@
     </header>
   </header>
 
-  <!-- FORM -->
-  <div class="rsvp-container">
-    <h1 class="rsvp-title">Conferma la tua presenza</h1>
+<div class="rsvp-container">
+  <h1 class="rsvp-title">Conferma la tua presenza</h1>
 
-    <form action="https://formsubmit.co/TUA_EMAIL" method="POST">
+  <!-- STEP 1 -->
+  <div id="step1">
+    <label>Nome
+      <input type="text" id="nome" required>
+    </label>
 
-      <input type="hidden" name="_subject" value="Nuova conferma RSVP dal sito del matrimonio">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_next" value="https://TUO-SITO/thankyou.html">
+    <label>Cognome
+      <input type="text" id="cognome" required>
+    </label>
 
-      <label>Nome e Cognome
-        <input type="text" name="nome" required>
-      </label>
-
-      <label>Parteciperai?
-        <select name="presenza" required>
-          <option value="si">Sì, ci sarò!</option>
-          <option value="no">Purtroppo no</option>
-        </select>
-      </label>
-
-      <label>Numero di persone
-        <input type="number" name="persone" min="1" max="10">
-      </label>
-
-      <label>Note (allergie, richieste…)
-        <textarea name="note"></textarea>
-      </label>
-
-      <button type="submit" class="submit-btn">Invia</button>
-    </form>
+    <button type="button" class="continue-btn" onclick="verificaNome()">Continua</button>
+	
+    <p id="errore" style="color:red; display:none;">
+      Nome non trovato nella lista invitati
+    </p>
   </div>
+
+  <!-- STEP 2 (nascosto) -->
+  <form id="formCompleto" action="https://formsubmit.co/TUA_EMAIL" method="POST" style="display:none;">
+    
+    <input type="hidden" name="_subject" value="Nuova conferma RSVP">
+    <input type="hidden" name="_captcha" value="false">
+
+    <!-- riempiamo automaticamente -->
+    <input type="hidden" name="nome_completo" id="nome_completo">
+
+    <label>Parteciperai?
+      <select name="presenza" required>
+        <option value="si">Sì, ci sarò!</option>
+        <option value="no">Purtroppo no</option>
+      </select>
+    </label>
+
+    <label id="persone-label">
+      Numero di persone
+      <select id="persone-select" name="persone"></select>
+    </label>
+
+    <label>Note
+      <textarea name="note"></textarea>
+    </label>
+
+    <button type="submit" class="submit-btn">Invia</button>
+  </form>
+</div>
+
+
+
+
+<script>
+
+let invitati = [];
+
+function normalizza(str) {
+  return str
+    .toLowerCase()
+    .trim()
+    .replace(/\s+/g, " ");
+}
+
+fetch("invitati.csv")
+  .then(res => {
+    console.log("Status:", res.status);
+    return res.text();
+  })
+  .then(data => {
+    console.log("CSV caricato:", data);
+  })
+  .catch(err => console.error("Errore:", err));
+
+
+fetch("invitati.csv")
+  .then(res => res.text())
+  .then(data => {
+    const righe = data.split("\n")
+      .slice(1)
+      .filter(r => r.trim() !== "");
+
+    invitati = righe.map(riga => {
+      const [nome, max] = riga.split(",");
+
+      return {
+        nome: normalizza(nome),
+        max: parseInt(max)
+      };
+    });
+
+    console.log(invitati); // DEBUG
+  });
+
+function verificaNome() {
+  const nome = document.getElementById("nome").value;
+  const cognome = document.getElementById("cognome").value;
+
+  const completo = normalizza(nome + " " + cognome);
+
+  const trovato = invitati.find(i => i.nome === completo);
+
+  console.log("Cercando:", completo);
+
+  if (trovato) {
+    console.log("Trovato:", trovato);
+
+    const select = document.getElementById("persone-select");
+    select.innerHTML = "";
+
+    for (let i = 1; i <= trovato.max; i++) {
+      const opt = document.createElement("option");
+      opt.value = i;
+      opt.textContent = i;
+      select.appendChild(opt);
+    }
+
+    document.getElementById("step1").style.display = "none";
+    document.getElementById("formCompleto").style.display = "block";
+
+  } else {
+    console.log("NON trovato");
+    document.getElementById("errore").style.display = "block";
+  }
+}
+</script>
+
 
 </body>
 </html>
