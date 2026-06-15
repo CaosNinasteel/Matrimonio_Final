@@ -33,34 +33,37 @@
     </header>
   </header>
 
-<div class="rsvp-container">
-  <h1 class="rsvp-title">Conferma la tua presenza</h1>
+<form id="formCompleto" action="https://formsubmit.co/TUA_EMAIL" method="POST">
+
+  <!-- CONFIG EMAIL -->
+  <input type="hidden" name="_subject" value="Nuova conferma RSVP">
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_next" value="https://TUO-SITO/thankyou.html">
+
+  <!-- utile per email -->
+  <input type="hidden" name="nome_completo" id="nome_completo">
 
   <!-- STEP 1 -->
   <div id="step1">
     <label>Nome
-      <input type="text" id="nome" required>
+      <input type="text" id="nome" name="nome" required>
     </label>
 
     <label>Cognome
-      <input type="text" id="cognome" required>
+      <input type="text" id="cognome" name="cognome" required>
     </label>
 
-    <button type="button" class="continue-btn" onclick="verificaNome()">Continua</button>
-	
+<button id="continuaBtn" type="button" class="submit-btn" onclick="verificaNome()">
+  Continua
+</button>
+
     <p id="errore" style="color:red; display:none;">
       Nome non trovato nella lista invitati
     </p>
   </div>
 
-  <!-- STEP 2 (nascosto) -->
-  <form id="formCompleto" action="https://formsubmit.co/TUA_EMAIL" method="POST" style="display:none;">
-    
-    <input type="hidden" name="_subject" value="Nuova conferma RSVP">
-    <input type="hidden" name="_captcha" value="false">
-
-    <!-- riempiamo automaticamente -->
-    <input type="hidden" name="nome_completo" id="nome_completo">
+  <!-- STEP 2 -->
+  <div id="step2" style="display:none;">
 
     <label>Parteciperai?
       <select name="presenza" required>
@@ -78,9 +81,12 @@
       <textarea name="note"></textarea>
     </label>
 
-    <button type="submit" class="submit-btn">Invia</button>
-  </form>
-</div>
+    <button type="submit" class="submit-btn">
+      Invia
+    </button>
+
+  </div>
+</form>
 
 
 
@@ -89,74 +95,174 @@
 
 let invitati = [];
 
+// ✅ normalizza stringhe (accents + apostrofi + spazi)
 function normalizza(str) {
   return str
     .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/'/g, "")
+    .replace(/[^a-z\s]/g, "")  // ✅ rimuove caratteri strani
     .trim()
     .replace(/\s+/g, " ");
 }
 
-fetch("invitati.csv")
-  .then(res => {
-    console.log("Status:", res.status);
-    return res.text();
-  })
-  .then(data => {
-    console.log("CSV caricato:", data);
-  })
-  .catch(err => console.error("Errore:", err));
+// ✅ parser CSV corretto (gestisce virgolette)
+function parseCSVLine(line) {
+  const result = [];
+  let current = '';
+  let insideQuotes = false;
 
+  for (let i = 0; i < line.length; i++) {
+    const char = line[i];
 
-fetch("invitati.csv")
+    if (char === '"') {
+      insideQuotes = !insideQuotes;
+    } else if (char === ',' && !insideQuotes) {
+      result.push(current);
+      current = '';
+    } else {
+      current += char;
+    }
+  }
+
+  result.push(current);
+  return result;
+}
+
+// ✅ URL Google Sheet CSV
+//const SHEET_URL = "https://docs.google.com/spreadsheets/d/1Wv-AbvOkGIx_ubVvjbP7QehcUreYQIrDMd-6J60KymI/gviz/tq?tqx=out:csv";
+//const SHEET_URL =
+  //"https://docs.google.com/spreadsheets/d/1Wv-AbvOkGIx_ubVvjbP7QehcUreYQIrDMd-6J60KymI/export?format=csv";
+ 
+// ✅ caricamento dati
+//fetch(SHEET_URL)
+	fetch("invitati.csv")
   .then(res => res.text())
   .then(data => {
+  console.log(data)
     const righe = data.split("\n")
       .slice(1)
       .filter(r => r.trim() !== "");
 
     invitati = righe.map(riga => {
-      const [nome, max] = riga.split(",");
 
+      const cols = parseCSVLine(riga)
+        .map(c => c.replace(/"/g, "").trim().toLowerCase());
+
+      const nome = normalizza(cols[0] || "");
+      const cognome1 = normalizza(cols[1] || "");
+      const cognome2 = normalizza(cols[2] || "");
+
+      const nomePlus = normalizza(cols[4] || "");
+      const cognomePlus1 = normalizza(cols[5] || "");
+      const cognomePlus2 = normalizza(cols[6] || "");
+	  
+	console.log("NOME PRINC:", nome)
+	
       return {
-        nome: normalizza(nome),
-        max: parseInt(max)
+        max: parseInt(cols[3]) || 1,
+
+        nomiPrincipali: [
+          normalizza(nome + " " + cognome1),
+          cognome2 ? normalizza(nome + " " + cognome2) : null,
+          nome // ✅ gestisce casi senza cognome tipo "Marito"
+        ].filter(Boolean),
+
+        nomiPlus: [
+          nomePlus && cognomePlus1 ? normalizza(nomePlus + " " + cognomePlus1) : null,
+          nomePlus && cognomePlus2 ? normalizza(nomePlus + " " + cognomePlus2) : null,
+          nomePlus // ✅ anche solo nome
+        ].filter(Boolean),
+
+        confermato: cols[7]?.trim() === "true"
       };
     });
 
-    console.log(invitati); // DEBUG
-  });
+    console.log("INVITATI CARICATI:", invitati);
 
+  })
+  .catch(err => console.error(err));
+
+
+
+
+// ✅ verifica nome
 function verificaNome() {
   const nome = document.getElementById("nome").value;
   const cognome = document.getElementById("cognome").value;
 
-  const completo = normalizza(nome + " " + cognome);
+  const completo = normalizza(nome) + " " + normalizza(cognome);
 
-  const trovato = invitati.find(i => i.nome === completo);
+  const errore = document.getElementById("errore");
 
-  console.log("Cercando:", completo);
+  console.log("INPUT:", completo);
 
-  if (trovato) {
-    console.log("Trovato:", trovato);
+  const trovato = invitati.find(i =>
+    i.nomiPrincipali.includes(completo) ||
+    i.nomiPlus.includes(completo)
+  );
 
-    const select = document.getElementById("persone-select");
-    select.innerHTML = "";
-
-    for (let i = 1; i <= trovato.max; i++) {
-      const opt = document.createElement("option");
-      opt.value = i;
-      opt.textContent = i;
-      select.appendChild(opt);
-    }
-
-    document.getElementById("step1").style.display = "none";
-    document.getElementById("formCompleto").style.display = "block";
-
-  } else {
-    console.log("NON trovato");
-    document.getElementById("errore").style.display = "block";
+  if (!trovato) {
+    errore.innerText = "Nome non trovato nella lista invitati";
+    errore.style.display = "block";
+    return;
   }
+  
+  if (trovato.confermato) {
+    errore.innerText = "HELLO HERE";
+    errore.style.display = "block";
+    return;
+  }
+
+  const isPlusOne = trovato.nomiPlus.includes(completo);
+  const maxPersone = isPlusOne ? 1 : trovato.max;
+
+  mostraForm(maxPersone);
 }
+
+
+// ✅ mostra step2
+function mostraForm(maxPersone) {
+
+  document.getElementById("step1").style.display = "none";
+  document.getElementById("step2").style.display = "block";
+
+  // popola numeri persone
+  const select = document.getElementById("persone-select");
+  select.innerHTML = "";
+
+  for (let i = 1; i <= maxPersone; i++) {
+    const opt = document.createElement("option");
+    opt.value = i;
+    opt.textContent = i;
+    select.appendChild(opt);
+  }
+
+  // salva nome completo
+  const nome = document.getElementById("nome").value;
+  const cognome = document.getElementById("cognome").value;
+
+  document.getElementById("nome_completo").value =
+    nome.trim() + " " + cognome.trim();
+}
+
+
+// ✅ nasconde persone se NON partecipa
+document.addEventListener("DOMContentLoaded", () => {
+  const presenzaSelect = document.querySelector('select[name="presenza"]');
+
+  presenzaSelect.addEventListener("change", function () {
+    const label = document.getElementById("persone-label");
+
+    if (this.value === "no") {
+      label.style.display = "none";
+    } else {
+      label.style.display = "block";
+    }
+  });
+});
+
 </script>
 
 
