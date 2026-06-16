@@ -578,6 +578,29 @@ textarea {
   border-color: #888;
 }
 
+
+.errore-msg {
+  display: none;
+
+  margin: 20px auto;     /* centra */
+  padding: 10px 16px;
+
+  width: fit-content;    /* ✅ chiave */
+  max-width: 90%;        /* evita overflow su mobile */
+
+  background: #f2fff2;
+  /*border-left: 4px solid #c94c4c;*/
+  border-radius: 4px;
+
+  color: #1f7a1f;
+
+  font-family: 'Cinzel', serif;
+  font-size: 16px;
+
+  text-align: center;
+}
+
+
 @media (max-width: 600px) {
 
   .rsvp-container {
@@ -623,28 +646,18 @@ textarea {
     padding: 0.7rem 1.5rem;
   }
 
+  .errore-msg {
+    margin: 10px 16px;       /* meno spazio laterale */
+    padding: 8px 12px;       /* più compatto */
+
+    width: 100%;             /* occupa tutta la larghezza */
+    max-width: 100%;
+
+    font-size: 14px;         /* carattere più piccolo */
+    line-height: 1.4;
+
+    border-radius: 6px;      /* leggermente più morbido */
+  }
+
 }
 
-/***************************************************/
-/*                    ERROR MESSAGE                  */
-/***************************************************/
-.errore-msg {
-  display: none;
-
-  margin: 20px auto;     /* centra */
-  padding: 10px 16px;
-
-  width: fit-content;    /* ✅ chiave */
-  max-width: 90%;        /* evita overflow su mobile */
-
-  background: #f2fff2;
-  /*border-left: 4px solid #c94c4c;*/
-  border-radius: 4px;
-
-  color: #1f7a1f;
-
-  font-family: 'Cinzel', serif;
-  font-size: 16px;
-
-  text-align: center;
-}
