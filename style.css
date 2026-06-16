@@ -325,10 +325,10 @@ body {
 
 /* Testo introduttivo (più grande e in evidenza) */
 .registry-intro {
-  font-size: 1.3rem;
-  font-weight: 600;
+	font-family: "Cinzel", serif;
+  font-size: 1.4rem;
   line-height: 1.6;
-  color: #222;
+  color: #444;
   font-style: italic;
   letter-spacing: 0.5px;
   margin-top: 4rem;
@@ -337,12 +337,13 @@ body {
 
 /* Testo principale (più grande e leggibile) */
 .registry-main {
+	font-family: "Cinzel", serif;
   font-size: 1.1rem;
-  font-weight: 300;
-  line-height: 1.7;
+  line-height: 1.6;
   color: #444;
+  font-style: italic;
   margin-bottom: 2rem;
-  letter-spacing: 0.3px;
+  letter-spacing: 0.5px;
 }
 
 /***************************************************/
