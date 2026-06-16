@@ -623,11 +623,6 @@ textarea {
     padding: 0.7rem 1.5rem;
   }
 
-  /* ✅ errore */
-  .errore-msg {
-    font-size: 0.9rem;
-    padding: 8px 12px;
-  }
 }
 
 /***************************************************/
@@ -642,11 +637,11 @@ textarea {
   width: fit-content;    /* ✅ chiave */
   max-width: 90%;        /* evita overflow su mobile */
 
-  background: #fff5f5;
-  border-left: 4px solid #c94c4c;
+  background: #f2fff2;
+  /*border-left: 4px solid #c94c4c;*/
   border-radius: 4px;
 
-  color: #7a1f1f;
+  color: #1f7a1f;
 
   font-family: 'Cinzel', serif;
   font-size: 16px;
