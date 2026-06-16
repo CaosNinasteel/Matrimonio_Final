@@ -544,7 +544,6 @@ textarea {
   resize: vertical;
 }
 
-}
 
 .continue-btn {
   margin-top: 2rem;
@@ -579,6 +578,57 @@ textarea {
   border-color: #888;
 }
 
+@media (max-width: 600px) {
+
+  .rsvp-container {
+    padding: 1.5rem 1rem;
+  }
+
+  .rsvp-title {
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+  }
+
+  form label {
+    font-size: 1rem;
+  }
+
+  /* ✅ input globali */
+  input, select, textarea {
+    width: 100%;
+    max-width: 100%;
+    font-size: 0.95rem;
+    padding: 0.6rem;
+  }
+
+  /* ✅ step1 */
+  #step1 input {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* ✅ step2 */
+  #step2 {
+    max-width: 100%;
+  }
+
+  /* ✅ bottoni */
+  .submit-btn,
+  .continue-btn {
+    width: 100%;
+    max-width: 260px;
+    display: block;
+    margin: 1.5rem auto 0;
+    font-size: 1rem;
+    padding: 0.7rem 1.5rem;
+  }
+
+  /* ✅ errore */
+  .errore-msg {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+  }
+}
 
 /***************************************************/
 /*                    ERROR MESSAGE                  */
