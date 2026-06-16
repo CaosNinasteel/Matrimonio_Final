@@ -31,6 +31,7 @@
       </div>
 
     </header>
+
   </header>
 
 <form id="formCompleto" action="https://formsubmit.co/TUA_EMAIL" method="POST">
@@ -53,9 +54,9 @@
       <input type="text" id="cognome" name="cognome" required>
     </label>
 
-<button id="continuaBtn" type="button" class="submit-btn" onclick="verificaNome()">
-  Continua
-</button>
+	<button id="continuaBtn" type="button" class="submit-btn" onclick="verificaNome()">
+	  Continua
+	</button>
 
     <p id="errore" style="color:red; display:none;">
       Nome non trovato nella lista invitati
@@ -95,140 +96,95 @@
 
 let invitati = [];
 
-// ✅ normalizza stringhe (accents + apostrofi + spazi)
+// ✅ normalizza stringhe
 function normalizza(str) {
   return str
     .toLowerCase()
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
     .replace(/'/g, "")
-    .replace(/[^a-z\s]/g, "")  // ✅ rimuove caratteri strani
+    .replace(/[^a-z\s]/g, "")
     .trim()
     .replace(/\s+/g, " ");
 }
 
-// ✅ parser CSV corretto (gestisce virgolette)
-function parseCSVLine(line) {
-  const result = [];
-  let current = '';
-  let insideQuotes = false;
+// ✅ CONFIG JSONBIN
+const BIN_ID = "6a30fe76da38895dfec832a5";
+const API_KEY = "$2a$10$9mci6Xi2bRFphPasXuSdle52zgJLxaLCO1FE1dNpwxUWUjb3cC/4K";
 
-  for (let i = 0; i < line.length; i++) {
-    const char = line[i];
+fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}/latest`, {
+  headers: {
+    "X-Master-Key": API_KEY
+  }
+})
+.then(res => res.json())
+.then(data => {
 
-    if (char === '"') {
-      insideQuotes = !insideQuotes;
-    } else if (char === ',' && !insideQuotes) {
-      result.push(current);
-      current = '';
-    } else {
-      current += char;
-    }
+  // ✅ gestione robusta (copre entrambi i casi)
+  if (Array.isArray(data.record)) {
+    invitati = data.record;
+  } else if (Array.isArray(data.record.record)) {
+    invitati = data.record.record;
+  } else {
+    console.error("Formato JSON inatteso:", data);
+    invitati = [];
   }
 
-  result.push(current);
-  return result;
-}
-
-// ✅ URL Google Sheet CSV
-//const SHEET_URL = "https://docs.google.com/spreadsheets/d/1Wv-AbvOkGIx_ubVvjbP7QehcUreYQIrDMd-6J60KymI/gviz/tq?tqx=out:csv";
-//const SHEET_URL =
-  //"https://docs.google.com/spreadsheets/d/1Wv-AbvOkGIx_ubVvjbP7QehcUreYQIrDMd-6J60KymI/export?format=csv";
- 
-// ✅ caricamento dati
-//fetch(SHEET_URL)
-	fetch("invitati.csv")
-  .then(res => res.text())
-  .then(data => {
-  console.log(data)
-    const righe = data.split("\n")
-      .slice(1)
-      .filter(r => r.trim() !== "");
-
-    invitati = righe.map(riga => {
-
-      const cols = parseCSVLine(riga)
-        .map(c => c.replace(/"/g, "").trim().toLowerCase());
-
-      const nome = normalizza(cols[0] || "");
-      const cognome1 = normalizza(cols[1] || "");
-      const cognome2 = normalizza(cols[2] || "");
-
-      const nomePlus = normalizza(cols[4] || "");
-      const cognomePlus1 = normalizza(cols[5] || "");
-      const cognomePlus2 = normalizza(cols[6] || "");
-	  
-	console.log("NOME PRINC:", nome)
-	
-      return {
-        max: parseInt(cols[3]) || 1,
-
-        nomiPrincipali: [
-          normalizza(nome + " " + cognome1),
-          cognome2 ? normalizza(nome + " " + cognome2) : null,
-          nome // ✅ gestisce casi senza cognome tipo "Marito"
-        ].filter(Boolean),
-
-        nomiPlus: [
-          nomePlus && cognomePlus1 ? normalizza(nomePlus + " " + cognomePlus1) : null,
-          nomePlus && cognomePlus2 ? normalizza(nomePlus + " " + cognomePlus2) : null,
-          nomePlus // ✅ anche solo nome
-        ].filter(Boolean),
-
-        confermato: cols[7]?.trim() === "true"
-      };
-    });
-
-    console.log("INVITATI CARICATI:", invitati);
-
-  })
-  .catch(err => console.error(err));
+  console.log("✅ invitati:", invitati);
+})
+.catch(err => console.error(err));
 
 
-
-
-// ✅ verifica nome
 function verificaNome() {
+
   const nome = document.getElementById("nome").value;
   const cognome = document.getElementById("cognome").value;
 
-  const completo = normalizza(nome) + " " + normalizza(cognome);
-
+  const completo = normalizza(nome + " " + cognome);
   const errore = document.getElementById("errore");
 
   console.log("INPUT:", completo);
 
-  const trovato = invitati.find(i =>
-    i.nomiPrincipali.includes(completo) ||
-    i.nomiPlus.includes(completo)
-  );
+  // ✅ TROVA IL GRUPPO
+  const gruppoTrovato = invitati.find(g => {
 
-  if (!trovato) {
-    errore.innerText = "Nome non trovato nella lista invitati";
+    return g.persone.some(p => {
+      const full1 = normalizza(p.nome + " " + (p.cognome1 || ""));
+      const full2 = normalizza(p.nome + " " + (p.cognome2 || ""));
+
+      return full1 === completo || full2 === completo;
+    });
+
+  });
+
+  // ❌ NON TROVATO
+  if (!gruppoTrovato) {
+    errore.innerText = "Nome non trovato";
     errore.style.display = "block";
     return;
   }
-  
-  if (trovato.confermato) {
-    errore.innerText = "HELLO HERE";
+
+  // ❌ GIÀ CONFERMATO (da chiunque nel gruppo)
+  if (gruppoTrovato.confermato) {
+    errore.innerText = "Hai già confermato (tu o il tuo accompagnatore)";
     errore.style.display = "block";
     return;
   }
 
-  const isPlusOne = trovato.nomiPlus.includes(completo);
-  const maxPersone = isPlusOne ? 1 : trovato.max;
+  // ✅ OK → salva gruppo selezionato
+  window.gruppoSelezionato = gruppoTrovato;
 
-  mostraForm(maxPersone);
+  mostraForm(gruppoTrovato.max || 1);
 }
 
 
-// ✅ mostra step2
+
+// ✅ MOSTRA STEP 2
 function mostraForm(maxPersone) {
 
   document.getElementById("step1").style.display = "none";
   document.getElementById("step2").style.display = "block";
 
-  // popola numeri persone
   const select = document.getElementById("persone-select");
   select.innerHTML = "";
 
@@ -239,7 +195,6 @@ function mostraForm(maxPersone) {
     select.appendChild(opt);
   }
 
-  // salva nome completo
   const nome = document.getElementById("nome").value;
   const cognome = document.getElementById("cognome").value;
 
@@ -248,7 +203,35 @@ function mostraForm(maxPersone) {
 }
 
 
-// ✅ nasconde persone se NON partecipa
+document.getElementById("formCompleto").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const gruppo = window.gruppoSelezionato;
+
+  if (!gruppo) return;
+
+  // ✅ marca tutta la coppia come confermata
+  gruppo.confermato = true;
+
+  fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      "X-Master-Key": API_KEY
+    },
+    body: JSON.stringify({
+      record: invitati
+    })
+  })
+  .then(() => {
+    console.log("✅ Conferma salvata");
+    e.target.submit();
+  })
+  .catch(err => console.error(err));
+});
+
+
+// ✅ gestione presenza
 document.addEventListener("DOMContentLoaded", () => {
   const presenzaSelect = document.querySelector('select[name="presenza"]');
 
@@ -262,6 +245,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
 
 </script>
 

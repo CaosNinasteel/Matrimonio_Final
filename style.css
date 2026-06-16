@@ -489,7 +489,7 @@ form label {
 }
 
 input, select, textarea {
-  width: 100%;
+  width: 280px;
   padding: 0.7rem;
   margin-top: 0.5rem;
   border: 1px solid #ccc;
@@ -502,7 +502,50 @@ textarea {
   min-height: 120px;
 }
 
-.Continue-btn {
+#step1 {
+  text-align: center;
+}
+
+#step1 label {
+  display: block;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+#step1 input {
+  width: 280px;
+  display: block;
+  padding: 10px;
+  margin: 10px auto;   /* 🔑 questo centra */
+}
+
+#step2 {
+  max-width: 400px;   /* limita larghezza form */
+  margin: 0 auto;     /* centra */
+}
+
+#step2 label {
+  display: block;
+  margin-bottom: 15px;
+}
+
+#step2 input,
+#step2 select,
+#step2 textarea {
+  width: 100%;        /* stanno dentro il container */
+  max-width: 100%;    /* sicurezza */
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+#step2 textarea {
+  height: 80px;
+  resize: vertical;
+}
+
+}
+
+.continue-btn {
   margin-top: 2rem;
   padding: 0.8rem 2.2rem;
   font-size: 1.1rem;
