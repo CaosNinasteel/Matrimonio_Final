@@ -578,3 +578,28 @@ textarea {
   background: #f7f7f7;
   border-color: #888;
 }
+
+
+/***************************************************/
+/*                    ERROR MESSAGE                  */
+/***************************************************/
+.errore-msg {
+  display: none;
+
+  margin: 20px auto;     /* centra */
+  padding: 10px 16px;
+
+  width: fit-content;    /* ✅ chiave */
+  max-width: 90%;        /* evita overflow su mobile */
+
+  background: #fff5f5;
+  border-left: 4px solid #c94c4c;
+  border-radius: 4px;
+
+  color: #7a1f1f;
+
+  font-family: 'Cinzel', serif;
+  font-size: 16px;
+
+  text-align: center;
+}

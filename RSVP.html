@@ -40,7 +40,7 @@
   <!-- CONFIG EMAIL -->
   <input type="hidden" name="_subject" value="Nuova conferma RSVP">
   <input type="hidden" name="_captcha" value="false">
-  <input type="hidden" name="_next" value="https://albertoecristina.com/thankyou.html">
+  <input type="hidden" name="_next" value="Thankyou.html">
 
   <!-- utile per email -->
   <input type="hidden" name="nome_completo" id="nome_completo">
@@ -59,9 +59,8 @@
 	  Continua
 	</button>
 
-    <p id="errore" style="color:red; display:none;">
-      Nome non trovato nella lista invitati
-    </p>
+    <p id="errore" class="errore-msg"></p>
+
   </div>
 
   <!-- STEP 2 -->
@@ -144,6 +143,9 @@ function verificaNome() {
   const completo = normalizza(nome + " " + cognome);
   const errore = document.getElementById("errore");
 
+  errore.style.display = "none";
+  errore.classList.remove("show");
+
   console.log("INPUT:", completo);
 
   // ✅ TROVA IL GRUPPO
@@ -160,7 +162,7 @@ function verificaNome() {
 
   // ❌ NON TROVATO
   if (!gruppoTrovato) {
-    errore.innerText = "Nome non trovato";
+    errore.innerText = "Nome non trovato nella lista invitati";
     errore.style.display = "block";
     return;
   }
