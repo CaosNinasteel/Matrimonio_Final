@@ -175,9 +175,26 @@ body {
     font-size: 2.2rem;
   }
 
+
+  .namesSposi-grid {
+    gap: 0.8rem;
+    max-width: 100%;
+    padding: 0 0.5rem;
+  }
+
+  .namesSposi-box {
+    flex: 1;
+  }
+
+  .namesSposi-title {
+    font-size: 2rem;
+    line-height: 1.1;
+  }
+
+
   /* Sezione invito */
   .invito-testo {
-    font-size: 1.1rem;
+    font-size: 1rem;
 	margin: 0.5rem 0;
   }
 
@@ -547,7 +564,7 @@ textarea {
 @media (max-width: 600px) {
 
   .rsvp-container {
-    padding: 1.5rem 1rem;
+	padding: 4.5rem 1rem 1.5rem;
   }
 
   .rsvp-title {
@@ -561,27 +578,28 @@ textarea {
 
   /* ✅ input globali */
   input, select, textarea {
-    width: 100%;
-    max-width: 100%;
+    width: 90%;
+    max-width: 320px;
     font-size: 0.95rem;
     padding: 0.6rem;
   }
 
   /* ✅ step1 */
   #step1 input {
-    width: 100%;
+    width: 90%;
     max-width: 100%;
   }
 
   /* ✅ step2 */
   #step2 {
+	  width: 90%;
     max-width: 100%;
   }
 
   /* ✅ bottoni */
   .submit-btn,
   .continue-btn {
-    width: 100%;
+    width: 90%;
     max-width: 260px;
     display: block;
     margin: 1.5rem auto 0;
