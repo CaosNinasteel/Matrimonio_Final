@@ -578,7 +578,7 @@ textarea {
 
   /* ✅ input globali */
   input, select, textarea {
-    width: 90%;
+    width: 50%;
     max-width: 320px;
     font-size: 0.95rem;
     padding: 0.6rem;
@@ -586,13 +586,13 @@ textarea {
 
   /* ✅ step1 */
   #step1 input {
-    width: 90%;
-    max-width: 100%;
+    width: 50%;
+    max-width: 320px;
   }
 
   /* ✅ step2 */
   #step2 {
-	  width: 90%;
+	  width: 50%;
     max-width: 100%;
   }
 
