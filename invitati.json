@@ -1,0 +1,509 @@
+[
+  {
+    "gruppo": "group_0",
+    "persone": [
+      {
+        "nome": "Flavio",
+        "cognome1": "Noviello",
+        "cognome2": ""
+      },
+      {
+        "nome": "Antonella",
+        "cognome1": "Rufo",
+        "cognome2": "Noviello"
+      }
+    ],
+    "max": 2,
+    "confermato": false
+  },
+  {
+    "gruppo": "group_2",
+    "persone": [
+      {
+        "nome": "Francesco",
+        "cognome1": "Zambon",
+        "cognome2": ""
+      },
+      {
+        "nome": "Rebecca",
+        "cognome1": "Canton",
+        "cognome2": ""
+      }
+    ],
+    "max": 2,
+    "confermato": false
+  },
+  {
+    "gruppo": "group_4",
+    "persone": [
+      {
+        "nome": "Erica",
+        "cognome1": "Pagnucco",
+        "cognome2": ""
+      },
+      {
+        "nome": "Enzo",
+        "cognome1": "Ranaldi",
+        "cognome2": ""
+      }
+    ],
+    "max": 2,
+    "confermato": false
+  },
+  {
+    "gruppo": "group_6",
+    "persone": [
+      {
+        "nome": "Federico",
+        "cognome1": "Di Fusco",
+        "cognome2": ""
+      }
+    ],
+    "max": 2,
+    "confermato": false
+  },
+  {
+    "gruppo": "group_7",
+    "persone": [
+      {
+        "nome": "Teo",
+        "cognome1": "Ortolan",
+        "cognome2": ""
+      }
+    ],
+    "max": 2,
+    "confermato": false
+  },
+  {
+    "gruppo": "group_8",
+    "persone": [
+      {
+        "nome": "Ezio",
+        "cognome1": "Antoniolli",
+        "cognome2": ""
+      },
+      {
+        "nome": "Silvia",
+        "cognome1": "Tessitori",
+        "cognome2": "Antoniolli"
+      }
+    ],
+    "max": 2,
+    "confermato": false
+  },
+  {
+    "gruppo": "group_10",
+    "persone": [
+      {
+        "nome": "Chiara",
+        "cognome1": "Antoniolli",
+        "cognome2": ""
+      },
+      {
+        "nome": "Matteo",
+        "cognome1": "Merlo",
+        "cognome2": ""
+      }
+    ],
+    "max": 2,
+    "confermato": false
+  },
+  {
+    "gruppo": "group_12",
+    "persone": [
+      {
+        "nome": "Francesca",
+        "cognome1": "Antoniolli",
+        "cognome2": ""
+      },
+      {
+        "nome": "Mattia",
+        "cognome1": "Bravin",
+        "cognome2": ""
+      }
+    ],
+    "max": 2,
+    "confermato": false
+  },
+  {
+    "gruppo": "group_14",
+    "persone": [
+      {
+        "nome": "Michele",
+        "cognome1": "Antoniolli",
+        "cognome2": ""
+      }
+    ],
+    "max": 2,
+    "confermato": false
+  },
+  {
+    "gruppo": "group_15",
+    "persone": [
+      {
+        "nome": "Alessandra",
+        "cognome1": "Antoniolli",
+        "cognome2": ""
+      }
+    ],
+    "max": 1,
+    "confermato": false
+  },
+  {
+    "gruppo": "group_16",
+    "persone": [
+      {
+        "nome": "Patrizia",
+        "cognome1": "Antoniolli",
+        "cognome2": ""
+      }
+    ],
+    "max": 2,
+    "confermato": false
+  },
+  {
+    "gruppo": "group_19",
+    "persone": [
+      {
+        "nome": "Roberta",
+        "cognome1": "Roppo",
+        "cognome2": ""
+      },
+      {
+        "nome": "Enrico",
+        "cognome1": "Toto",
+        "cognome2": ""
+      }
+    ],
+    "max": 2,
+    "confermato": false
+  },
+  {
+    "gruppo": "group_21",
+    "persone": [
+      {
+        "nome": "Eleonora",
+        "cognome1": "Bovolenta",
+        "cognome2": ""
+      },
+      {
+        "nome": "Fabio",
+        "cognome1": "Traunero",
+        "cognome2": ""
+      }
+    ],
+    "max": 2,
+    "confermato": false
+  },
+  {
+    "gruppo": "group_23",
+    "persone": [
+      {
+        "nome": "Edoardo",
+        "cognome1": "Turozzi",
+        "cognome2": ""
+      }
+    ],
+    "max": 2,
+    "confermato": false
+  },
+  {
+    "gruppo": "group_24",
+    "persone": [
+      {
+        "nome": "Giulia",
+        "cognome1": "Brieda",
+        "cognome2": ""
+      }
+    ],
+    "max": 2,
+    "confermato": false
+  },
+  {
+    "gruppo": "group_25",
+    "persone": [
+      {
+        "nome": "Elena",
+        "cognome1": "Presotto",
+        "cognome2": ""
+      },
+      {
+        "nome": "Giulio",
+        "cognome1": "Giacomin",
+        "cognome2": ""
+      }
+    ],
+    "max": 2,
+    "confermato": false
+  },
+  {
+    "gruppo": "group_27",
+    "persone": [
+      {
+        "nome": "Elena",
+        "cognome1": "Piccinin",
+        "cognome2": ""
+      }
+    ],
+    "max": 2,
+    "confermato": false
+  },
+  {
+    "gruppo": "group_28",
+    "persone": [
+      {
+        "nome": "Giulia",
+        "cognome1": "Sari",
+        "cognome2": ""
+      }
+    ],
+    "max": 2,
+    "confermato": false
+  },
+  {
+    "gruppo": "group_29",
+    "persone": [
+      {
+        "nome": "Manuela",
+        "cognome1": "Roccamena",
+        "cognome2": ""
+      }
+    ],
+    "max": 2,
+    "confermato": false
+  },
+  {
+    "gruppo": "group_30",
+    "persone": [
+      {
+        "nome": "Susanna",
+        "cognome1": "Vacchetta",
+        "cognome2": ""
+      }
+    ],
+    "max": 2,
+    "confermato": false
+  },
+  {
+    "gruppo": "group_31",
+    "persone": [
+      {
+        "nome": "Ilaria",
+        "cognome1": "Boschi",
+        "cognome2": ""
+      }
+    ],
+    "max": 2,
+    "confermato": false
+  },
+  {
+    "gruppo": "group_32",
+    "persone": [
+      {
+        "nome": "Gloria",
+        "cognome1": "Giuriani",
+        "cognome2": ""
+      }
+    ],
+    "max": 2,
+    "confermato": false
+  },
+  {
+    "gruppo": "group_33",
+    "persone": [
+      {
+        "nome": "Giulia",
+        "cognome1": "Contratti",
+        "cognome2": ""
+      }
+    ],
+    "max": 1,
+    "confermato": false
+  },
+  {
+    "gruppo": "group_34",
+    "persone": [
+      {
+        "nome": "Alessandro",
+        "cognome1": "Fabbro",
+        "cognome2": ""
+      }
+    ],
+    "max": 1,
+    "confermato": false
+  },
+  {
+    "gruppo": "group_35",
+    "persone": [
+      {
+        "nome": "Antonello",
+        "cognome1": "Fabbro",
+        "cognome2": ""
+      },
+      {
+        "nome": "Anna",
+        "cognome1": "D'Agostino",
+        "cognome2": "Fabbro"
+      }
+    ],
+    "max": 2,
+    "confermato": false
+  },
+  {
+    "gruppo": "group_37",
+    "persone": [
+      {
+        "nome": "Elisa",
+        "cognome1": "Martin",
+        "cognome2": ""
+      }
+    ],
+    "max": 1,
+    "confermato": false
+  },
+  {
+    "gruppo": "group_38",
+    "persone": [
+      {
+        "nome": "Silvia",
+        "cognome1": "Aliprandi",
+        "cognome2": ""
+      }
+    ],
+    "max": 1,
+    "confermato": false
+  },
+  {
+    "gruppo": "group_39",
+    "persone": [
+      {
+        "nome": "Michele",
+        "cognome1": "Morandin",
+        "cognome2": ""
+      }
+    ],
+    "max": 1,
+    "confermato": false
+  },
+  {
+    "gruppo": "group_40",
+    "persone": [
+      {
+        "nome": "Gisella",
+        "cognome1": "Coiro",
+        "cognome2": "Piccinin"
+      },
+      {
+        "nome": "Angelo",
+        "cognome1": "Piccinin",
+        "cognome2": ""
+      }
+    ],
+    "max": 2,
+    "confermato": false
+  },
+  {
+    "gruppo": "group_42",
+    "persone": [
+      {
+        "nome": "Moreno",
+        "cognome1": "Stinat",
+        "cognome2": ""
+      },
+      {
+        "nome": "Patty",
+        "cognome1": "",
+        "cognome2": "Stinat"
+      }
+    ],
+    "max": 2,
+    "confermato": false
+  },
+  {
+    "gruppo": "group_44",
+    "persone": [
+      {
+        "nome": "Antonio",
+        "cognome1": "Malattia",
+        "cognome2": ""
+      }
+    ],
+    "max": 2,
+    "confermato": false
+  },
+  {
+    "gruppo": "group_45",
+    "persone": [
+      {
+        "nome": "Edi",
+        "cognome1": "Polesello",
+        "cognome2": ""
+      },
+      {
+        "nome": "Natascia",
+        "cognome1": "",
+        "cognome2": "Polesello"
+      }
+    ],
+    "max": 2,
+    "confermato": false
+  },
+  {
+    "gruppo": "group_47",
+    "persone": [
+      {
+        "nome": "Guido",
+        "cognome1": "Bevilacqua",
+        "cognome2": ""
+      },
+      {
+        "nome": "Francesca",
+        "cognome1": "",
+        "cognome2": "Bevilacqua"
+      }
+    ],
+    "max": 2,
+    "confermato": false
+  },
+  {
+    "gruppo": "group_49",
+    "persone": [
+      {
+        "nome": "Diego",
+        "cognome1": "Rui",
+        "cognome2": ""
+      },
+      {
+        "nome": "Mariarosa",
+        "cognome1": "",
+        "cognome2": "Rui"
+      }
+    ],
+    "max": 2,
+    "confermato": false
+  },
+  {
+    "gruppo": "group_51",
+    "persone": [
+      {
+        "nome": "Luigi",
+        "cognome1": "Biscontin",
+        "cognome2": ""
+      }
+    ],
+    "max": 1,
+    "confermato": false
+  },
+  {
+    "gruppo": "group_52",
+    "persone": [
+      {
+        "nome": "Manuela",
+        "cognome1": "Scuccato",
+        "cognome2": ""
+      }
+    ],
+    "max": 1,
+    "confermato": false
+  }
+]
